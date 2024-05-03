@@ -19,7 +19,7 @@ jobs:
           cacheFrom: ghcr.io/${{ github.repository_owner }}/autosar-devcontainer
           push: never
           runCmd: make build
-           
+
       # Copy artifacts from Docker container to host
       - name: Copy artifacts from Docker container to host
         run: |
@@ -49,7 +49,7 @@ jobs:
           cacheFrom: ghcr.io/${{ github.repository_owner }}/autosar-devcontainer
           push: never
           runCmd: make unit_test
-           
+
       # Copy artifacts from Docker container to host
       - name: Copy artifacts from Docker container to host
         run: |
@@ -64,3 +64,4 @@ jobs:
         with:
           name: test-artifacts
           path: ./artifacts/unit
+
