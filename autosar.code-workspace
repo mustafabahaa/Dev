@@ -4,5 +4,9 @@
 			"path": "."
 		}
   ],
-  "settings": {}
+  "settings": {
+    "circleci.persistedProjectSelection": [
+      "circleci/8xEJgjnM3Ph4YWVKGjLZjD/T5qr3g6VRBwCPrdtroLWsn"
+    ]
+  }
 }
