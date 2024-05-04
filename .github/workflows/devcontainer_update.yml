@@ -1,4 +1,4 @@
-name: Update Dev Container
+name: Update Devcontainer
 
 on: workflow_dispatch
 
