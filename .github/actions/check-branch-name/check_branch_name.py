@@ -2,7 +2,6 @@ import re
 import argparse
 import sys
 
-
 def main(branch_name):
     try:
         is_branch_name_valid = False
@@ -28,7 +27,6 @@ def main(branch_name):
     except Exception as e:
         print(f"Error occurred while checking branch name: {e}", file=sys.stderr)
         sys.exit(1)
-
 
 if __name__ == "__main__":
     # Parse command-line arguments
