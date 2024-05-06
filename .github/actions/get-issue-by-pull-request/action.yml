@@ -2,26 +2,33 @@ name: Check Branch Name
 
 description: Check if branch name is valid
 
+outputs:
+  issue_id:
+    description: "Return Issue ID linked in pull request"
+    value: ${{ steps.get_issue_id_script.outputs.issue_id }}
+
 runs:
   using: "composite"
   steps:
 
     - name: Run Python Script
-      id: check_branch_name_script
+      id: get_issue_id_script
       shell: bash
       run: |
         # Install dependencies
         pip install -r $GITHUB_ACTION_PATH/requirements.txt
 
         # Exec the sciprt
-        output=$(python $GITHUB_ACTION_PATH/check_branch_name.py \
-          --branch_name "${{ github.event.pull_request.head.ref }}")
+        output=$(python $GITHUB_ACTION_PATH/get_issue_id_from_pull_request.py \
+          --pull_request ${{ github.event.pull_request }}")
 
         # Print the whole script output for debugging
         echo "$output"
 
         # Extract the result of the script
-        is_branch_name_valid=$(echo "$output" | grep '^is_branch_name_valid=')
+        issue_id=$(echo "$output" | grep '^issue_id=')
 
         # Add the result to output buffer
-        echo "$is_branch_name_valid" >> $GITHUB_OUTPUT
+        echo "$issue_id" >> $GITHUB_OUTPUT
+
+

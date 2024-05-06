@@ -1,0 +1,23 @@
+name: Assign Label Action
+description: Assign a label to an issue or pull request
+
+inputs:
+  number:
+    description: 'The number of the issue or pull request to which the label will be added and'
+    required: true
+  label:
+    description: 'The label to be added to the issue'
+    required: true
+
+runs:
+  using: "composite"
+  steps:
+    - name: Assign label and assignee to issue
+      id: assign-label
+      run: |
+        # Retrieve inputs
+        ISSUE_NUMBER="${{ inputs.number }}"
+        LABEL="${{ inputs.label }}"
+
+        # Use the GitHub CLI to add label and assignee to the issue
+        gh issue edit "${ISSUE_NUMBER}" --add-label "${LABEL}""
