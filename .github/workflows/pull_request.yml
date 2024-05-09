@@ -28,10 +28,6 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
 
-      - run: echo "$EVENT"
-        env:
-          EVENT: ${{toJSON(github.event)}}
-
   build:
     runs-on: ubuntu-22.04
     needs: sanity-check

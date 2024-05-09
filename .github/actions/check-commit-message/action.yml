@@ -28,7 +28,7 @@ runs:
 
         # Exec the script
         output=$(python $GITHUB_ACTION_PATH/check_commit_message.py \
-          --commits_url "${{ github.event.pull_request.commits_url }}") \
+          --commits_url "${{ github.event.pull_request.commits_url }}" \
           --token "${{ inputs.token }}")
 
         # Print the whole script output for debugging
