@@ -6,12 +6,20 @@ runs:
   using: "composite"
   steps:
 
+    - name: echo event
+      shell: bash
+      run: echo "$EVENT"
+        env:
+          EVENT: ${{toJSON(github)}}
+
     - name: Run Python Script
       id: check_commit_message_script
       shell: bash
       run: |
         # Install dependencies
         pip install -r $GITHUB_ACTION_PATH/requirements.txt
+
+        echo "${{toJSON(github)}}"
 
         # Exec the script
         output=$(python $GITHUB_ACTION_PATH/check_commit_message.py \
