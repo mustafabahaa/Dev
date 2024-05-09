@@ -16,6 +16,10 @@ jobs:
         with:
           fetch-depth: 0
 
+      - run: echo "$EVENT"
+        env:
+          EVENT: ${{toJSON(github.event)}}
+
       - name: Check Branch Name
         uses: ./.github/actions/check-branch-name
 
