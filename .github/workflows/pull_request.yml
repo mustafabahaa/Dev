@@ -22,6 +22,10 @@ jobs:
       - name: Check Commit Messages
         uses: ./.github/actions/check-commit-message
 
+      - run: echo "$EVENT"
+        env:
+          EVENT: ${{toJSON(github.event)}}
+
   build:
     runs-on: ubuntu-22.04
     needs: sanity-check
