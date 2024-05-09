@@ -6,6 +6,12 @@ runs:
   using: "composite"
   steps:
 
+    - name: echo event
+      shell: bash
+      run: echo "$EVENT"
+        env:
+          EVENT: ${{toJSON(github)}}
+
     - name: Run Python Script
       id: check_commit_message_script
       shell: bash
