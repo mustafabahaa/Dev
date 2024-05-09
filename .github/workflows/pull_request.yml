@@ -21,6 +21,8 @@ jobs:
 
       - name: Check Commit Messages
         uses: ./.github/actions/check-commit-message
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
 
   build:
     runs-on: ubuntu-22.04
