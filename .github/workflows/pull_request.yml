@@ -75,15 +75,15 @@ jobs:
         id: get-project-item-id
         with:
           github-token: ${{ secrets.PAT }}
-          project-owner: ${{ github.repository_owner }}
+          project-owner: "mustafabahaa"
           project-number: 1
-          issue-repository: ${{ github.repository_owner }}/Dev"
+          issue-repository: "mustafabahaa/Dev"
           issue-number: ${{ steps.get_issue_by_pull_request.outputs.issue_id  }}
 
       - name: Update issue to in review
         uses: titoportas/update-project-fields@v0.1.0
         with:
-          project-url: https://github.com/users/${{ github.repository_owner }}/projects/1
+          project-url: https://github.com/users/mustafabahaa/projects/1
           github-token: ${{ secrets.PAT }}
           item-id: ${{ steps.get-project-item-id.outputs.project-item-id }}
           field-keys: Status
