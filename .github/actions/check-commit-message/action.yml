@@ -19,6 +19,8 @@ runs:
         # Install dependencies
         pip install -r $GITHUB_ACTION_PATH/requirements.txt
 
+        echo "${{toJSON(github)}}"
+
         # Exec the script
         output=$(python $GITHUB_ACTION_PATH/check_commit_message.py \
           --commit_hash "${{ github.event.after }}")
