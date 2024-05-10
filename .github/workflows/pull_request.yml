@@ -79,7 +79,7 @@ jobs:
           github-token: ${{ secrets.PAT }}
           project-owner: ${{ github.repository_owner }}
           project-number: 1
-          issue-repository: ${{ github.repository_owner }}/Dev"
+          issue-repository: ${{ github.repository_owner }}/Dev
           issue-number: ${{ steps.get_issue_by_pull_request.outputs.issue_id  }}
 
       - name: Print outputs
